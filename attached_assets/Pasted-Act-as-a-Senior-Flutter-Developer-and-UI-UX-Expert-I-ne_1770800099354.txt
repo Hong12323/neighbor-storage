@@ -1,0 +1,83 @@
+Act as a Senior Flutter Developer and UI/UX Expert.
+I need you to build a complete, production-ready mobile app called "Neighbor Storage (이웃창고)" using Flutter in this Replit environment.
+This is a Hyper-Local Item Rental Platform (C2C & B2C) targeting Uiwang-si, Korea.
+The goal is to create a fully functional UI prototype with Mock Data that looks exactly like a real app.
+1. Project Identity & Design System
+• App Name: Neighbor Storage (이웃창고)
+• Concept: "My neighborhood is my warehouse."
+• Primary Color: 0xFFFFD700 (Mustard Yellow - Warmth & Trust)
+• Secondary Color: 0xFF333333 (Dark Gray - Text)
+• Background Color: 0xFFFFFFFF (White)
+• Surface Color: 0xFFF5F5F5 (Light Gray for Cards)
+• Accent Color: 0xFFFF4500 (Orange for "Express" tags)
+• Typography: Use Google Fonts 'Noto Sans KR' (or system default sans-serif).
+• Style: Card-based UI, Rounded corners (16px), Clean & Modern (like Karrot Market).
+1. Tech Stack
+• Framework: Flutter (Latest Stable)
+• State Management: flutter_riverpod (Must use for managing Mock Data)
+• Navigation: go_router (Implement ShellRoute for persistent Bottom Navigation)
+• Icons: lucide_icons
+• Utils: intl (For currency formatting, e.g., "10,000원")
+• Image: cached_network_image
+1. Core Features & Business Models (Crucial Requirements)
+You must implement the UI and Logic for these specific features:
+Feature A: Pro Partners (B2C Rental)
+• Concept: Local shops (Hardware stores, Camping shops) listing items.
+• Implementation:
+• Create a boolean field 'isShopOwner' in the User model.
+• On the Home Screen, create a Horizontal Scroll Section at the very top titled "👑 우리 동네 프로 샵 (Pro Partners)".
+• Only items from users with 'isShopOwner = true' appear here.
+• On the Item Detail Screen, show a badge: "전문가 검수 완료 (Pro Checked)".
+Feature B: Express Delivery (Quick Matching)
+• Concept: Getting the item delivered via a neighbor rider.
+• Implementation:
+• On the 'Checkout Screen', create a Radio Button Group for "Receive Method".
+• Option 1: "직접 수령 (Pick up)" - +0 KRW
+• Option 2: "⚡️ 이웃 퀵 (Neighbor Express)" - +3,000 KRW
+• The Total Price should update dynamically based on this selection.
+Feature C: Escrow System (Deposit)
+• Concept: Holding the deposit securely.
+• Implementation:
+• On the 'Checkout Screen', clearly separate the "Rental Fee" and "Deposit".
+• Show a message: "보증금은 안전하게 보관되며 반납 시 환불됩니다."
+Feature D: Knowledge Share
+• Concept: Teaching how to use the tool.
+• Implementation:
+• Create a boolean field 'canTeach' in the Item model.
+• If true, display a highlighted tag on the Item Detail Screen: "💡 사용법 알려드려요 (Usage Lesson Available)".
+1. Navigation Structure (5 Tabs)
+Use 'ScaffoldWithNavBar' logic to persist these 5 tabs.
+The Center Tab (Upload) must look like a Floating Action Button.
+Tab 1: Home (index)
+• Top: Location Bar ("오전동" dropdown), Search Button, Notification Bell.
+• Body:
+1. "Pro Partners" Horizontal List.
+2. "Recent Items" Vertical List (Infinite Scroll style).
+• FAB: Map Icon (Bottom Right).
+Tab 2: Chat (chat)
+• Simple Chat Room List UI.
+Tab 3: Upload (upload)
+• This should be the CENTER button.
+• Make the icon larger and circular (Floating style).
+• Clicking it opens a Modal (showModalBottomSheet) for listing an item.
+Tab 4: My Storage (my_storage)
+• Inventory Management.
+• Wallet Section showing "Held Deposits".
+Tab 5: Settings (settings)
+• Profile and App Settings.
+1. Data Structure (Mock Data)
+Create a 'MockDataService' using Riverpod to populate the app.
+• User Model: id, nickname, isShopOwner, shopName, trustScore.
+• Item Model: id, ownerId, title, category, pricePerDay, deposit, isProItem, canTeach, canDeliver, imageUrl.
+Please generate 15 realistic dummy items for "Uiwang-si" context:
+• 5 Items from "Pro Partners" (e.g., "Camping Club", "Uiwang Tools").
+• 10 Items from "Normal Neighbors".
+• Use 'picsum.photos' for random realistic images.
+1. Execution Plan
+• Step 1: Update pubspec.yaml with dependencies.
+• Step 2: Create the folder structure (features/home, features/chat, features/shared, etc.).
+• Step 3: Implement the Data Models and Mock Service.
+• Step 4: Implement the Navigation (GoRouter + ShellRoute).
+• Step 5: Build the Screens (Home, Detail, Checkout).
+• Step 6: Run the app.
+Now, write the code. Focus on creating a beautiful, functional UI that I can test immediately.
